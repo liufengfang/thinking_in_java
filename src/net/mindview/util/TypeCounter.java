@@ -13,10 +13,12 @@ public class TypeCounter extends HashMap<Class<?>, Integer> {
 
     public void count(Object obj) {
         Class<?> type = obj.getClass();
-        if (!baseType.isAssignableFrom(type))
+        if (!baseType.isAssignableFrom(type)) {
             throw new RuntimeException(obj + " incorrect type: "
                     + type + ", should be type or subtype of "
                     + baseType);
+        }
+
         countClass(type);
     }
 

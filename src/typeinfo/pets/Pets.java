@@ -3,6 +3,7 @@
 package typeinfo.pets;
 import java.util.*;
 
+/*PetCreatorµÄ´úÀí*/
 public class Pets {
 
   public static final PetCreator creator = new LiteralPetCreator();
