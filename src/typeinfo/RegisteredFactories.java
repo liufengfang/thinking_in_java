@@ -6,6 +6,8 @@ import typeinfo.factory.*;
 import java.util.*;
 
 class Part {
+
+    @Override
     public String toString() {
         return getClass().getSimpleName();
     }
