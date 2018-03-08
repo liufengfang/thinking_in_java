@@ -49,6 +49,7 @@ class Entrance implements Runnable {
 
     public void run() {
         while (!canceled) {
+            //这里的同步控制块应该可以去掉，因为没有多个任务来竞争number
             synchronized (this) {
                 ++number;
             }
