@@ -51,6 +51,7 @@ class Chef implements Runnable {
           restaurant.meal = new Meal(count);
           restaurant.waitPerson.notifyAll();
         }
+        //! 删除这行，将不会出现中断异常Chef interrupted
         TimeUnit.MILLISECONDS.sleep(100);
       }
     } catch(InterruptedException e) {
