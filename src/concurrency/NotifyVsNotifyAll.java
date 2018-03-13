@@ -3,6 +3,7 @@ import java.util.concurrent.*;
 import java.util.*;
 
 class Blocker {
+  //！synchronized去掉，会报错。原因是一个基础点，竟然忘记！
   synchronized void waitingCall() {
     try {
       while(!Thread.interrupted()) {
