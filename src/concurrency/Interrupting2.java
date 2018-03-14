@@ -13,6 +13,7 @@ class BlockedMutex {
     public BlockedMutex() {
         // Acquire it right away, to demonstrate interruption
         // of a task blocked on a ReentrantLock:
+        print("Thread of call structure:"+Thread.currentThread());
         lock.lock();
     }
 
@@ -31,6 +32,7 @@ class Blocked2 implements Runnable {
     BlockedMutex blocked = new BlockedMutex();
 
     public void run() {
+        print("Thread that call run:" + Thread.currentThread());
         print("Waiting for f() in BlockedMutex");
         blocked.f();
         print("Broken out of blocked call");
