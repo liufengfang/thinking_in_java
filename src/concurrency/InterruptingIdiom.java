@@ -31,6 +31,7 @@ class Blocked3 implements Runnable {
                 // of n1, to guarantee proper cleanup of n1:
                 try {
                     print("Sleeping");
+                    //去掉这个sleep(),该任务即使收到interrupt(),run()也不会马上被中断，直到当线程用完时间片进入阻塞时
                     TimeUnit.SECONDS.sleep(1);
                     // point2
                     NeedsCleanup n2 = new NeedsCleanup(2);
