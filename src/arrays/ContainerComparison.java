@@ -13,7 +13,7 @@ public class ContainerComparison {
         for (int i = 0; i < 5; i++) {
             spheres[i] = new BerylliumSphere();
         }
-        System.out.println(spheres);
+        System.out.println(Arrays.toString(spheres));
         System.out.println(spheres[4]);
 
         List<BerylliumSphere> sphereList = new ArrayList<>();
@@ -28,10 +28,10 @@ public class ContainerComparison {
         System.out.println(integers[4]);
 
 //      List<Integer> intList = new ArrayList<>(Arrays.asList(0,1,2,3,4,5));
-        //todo
         List<Integer> intList = Arrays.asList(0, 1, 2, 3, 4, 5);
-//        System.out.println(intList.getClass().getName());
-        intList.add(97);
+        //java.util.Arrays$ArrayList(没有重写add()),所以下面intList.add(97)会报错
+        System.out.println(intList.getClass().getName());
+//        intList.add(97);
         System.out.println(intList);
         System.out.println(intList.get(4));
     }
