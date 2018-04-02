@@ -8,8 +8,9 @@ public class Unsupported {
     Collection<String> c = list;
     Collection<String> subList = list.subList(1,8);
     // Copy of the sublist:
-    //todo 为什么会有下面这一行？
+    //为什么会有下面这一行？
     Collection<String> c2 = new ArrayList<String>(subList);
+    System.out.println("c.getClass().getName():" + c.getClass().getName());
     try { c.retainAll(c2); } catch(Exception e) {
       System.out.println("retainAll(): " + e);
     }
