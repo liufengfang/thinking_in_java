@@ -1,7 +1,7 @@
 package io;//: io/ZipCompress.java
 // Uses Zip compression to compress any
 // number of files given on the command line.
-// {Args: ZipCompress.java}
+// {Args: src/ro/ZipCompress.java}
 
 import java.io.*;
 import java.util.Enumeration;
