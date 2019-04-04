@@ -1,4 +1,4 @@
-package typeinfo;//: typeinfo/SimpleProxyDemo.java
+package typeinfo.proxy;//: typeinfo/SimpleProxyDemo.java
 
 import static net.mindview.util.Print.*;
 
