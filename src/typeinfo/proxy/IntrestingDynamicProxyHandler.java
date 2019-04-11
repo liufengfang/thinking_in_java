@@ -24,6 +24,12 @@ public class IntrestingDynamicProxyHandler implements InvocationHandler {
         }
         return method.invoke(proxied,args);
     }
+
+    public Object create(){
+        return Proxy.newProxyInstance(proxied.getClass().getClassLoader(),
+                proxied.getClass().getInterfaces(),
+                this);
+    }
 }
 
 class dpHandler2 implements InvocationHandler{
@@ -43,6 +49,12 @@ class dpHandler2 implements InvocationHandler{
         }
         return null;
     }
+
+    public Object create(){
+        return Proxy.newProxyInstance(proxied.getClass().getClassLoader(),
+                proxied.getClass().getInterfaces(),
+                this);
+    }
 }
 
 class Test{
@@ -58,27 +70,19 @@ class Test{
     public static void main(String[] args) {
         RealSubject rs = new RealSubject();
         //proxyHandler1
-        Subject proxy = (Subject) Proxy.newProxyInstance(
-                rs.getClass().getClassLoader(),
-                new Class[]{Subject.class},
-                new IntrestingDynamicProxyHandler(rs));
+        Subject proxy = (Subject)
+                new IntrestingDynamicProxyHandler(rs).create();
         consume(proxy);
 
         //proxyHandler2
-        proxy = (Subject) Proxy.newProxyInstance(
-                rs.getClass().getClassLoader(),
-                new Class[]{Subject.class},
-                new dpHandler2(rs));
+        proxy = (Subject) new dpHandler2(rs).create();
         consume(proxy);
 
 
         RealObject ro = new RealObject();
         //proxy another Class
-        Interface iface = (Interface)Proxy.newProxyInstance(
-                ro.getClass().getClassLoader(),
-                new Class[]{Interface.class},
-                new IntrestingDynamicProxyHandler(ro)
-        );
+        Interface iface = (Interface)
+                new IntrestingDynamicProxyHandler(ro).create();
         consumer(iface);
     }
 }
