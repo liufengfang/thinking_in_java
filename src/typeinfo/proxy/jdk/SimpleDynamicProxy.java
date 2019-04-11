@@ -1,4 +1,4 @@
-package typeinfo.proxy;//: typeinfo/SimpleDynamicProxy.java
+package typeinfo.proxy.jdk;//: typeinfo/SimpleDynamicProxy.java
 
 import java.lang.reflect.*;
 
