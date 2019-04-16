@@ -14,21 +14,21 @@ public class CglibDemo {
         Enhancer enhancer = new Enhancer();
         //其实和jdk一样，既可以设计成传引用，也可以设计成传Class类
         enhancer.setSuperclass(AService.class);
-        enhancer.setCallback(new aServiceImpl());
+        enhancer.setCallback(new AServiceImpl());
 
-        AService aService = (AService)enhancer.create();
+        AService aService = (AService) enhancer.create();
         aService.doSomething();
     }
 }
 
 class AService {
-    public String doSomething(){
+    public String doSomething() {
         System.out.println("do something!");
         return "do something";
     }
 }
 
-class aServiceImpl implements MethodInterceptor{
+class AServiceImpl implements MethodInterceptor {
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("before");
